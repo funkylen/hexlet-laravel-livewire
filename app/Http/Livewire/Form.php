@@ -15,19 +15,17 @@ class Form extends Component
     public FormModel $form;
     public bool $terms;
 
-    protected $queryString = [
-        'page' => ['except' => 1],
-    ];
-
     protected $rules = [
         'form.name' => 'required|string',
         'form.email' => 'required|email',
+        'form.count' => 'required|integer',
         'terms' => 'accepted',
     ];
 
     public function mount(): void
     {
         $this->form = new FormModel();
+        $this->form->count = 10;
         $this->terms = false;
     }
 
@@ -52,5 +50,15 @@ class Form extends Component
         session()->flash('message', 'Form Successfully Created!');
 
         $this->mount();
+    }
+
+    public function increment(): void
+    {
+        $this->form->count += 1;
+    }
+
+    public function decrement(): void
+    {
+        $this->form->count -= 1;
     }
 }

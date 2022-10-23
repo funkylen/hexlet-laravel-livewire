@@ -32,6 +32,15 @@
 
         </div>
 
+        <div class="mb-3">
+            <label for="count" class="form-label">Count</label>
+            <div class="d-flex w-50">
+                <button class="btn btn-outline-danger" wire:click="decrement">-</button>
+                <input class="form-control w-25 me-2 ms-2" type="number" wire:model="form.count" disabled id="count">
+                <button class="btn btn-outline-success" wire:click="increment">+</button>
+            </div>
+        </div>
+
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input @error('terms') is-invalid @enderror" id="agree"
                 name="terms" wire:model="terms">
@@ -55,6 +64,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Count</th>
                 <th>Created At</th>
                 <th>Updated At</th>
             </tr>
@@ -67,6 +77,7 @@
                     <td>{{ $form->id }}</td>
                     <td>{{ $form->name }}</td>
                     <td>{{ $form->email }}</td>
+                    <td>{{ $form->count }}</td>
                     <td>{{ $form->created_at }}</td>
                     <td>{{ $form->updated_at }}</td>
                 </tr>

@@ -5,14 +5,15 @@
 @section('content')
     <h2 class="mb-3">Server Side Form</h2>
 
-    @if (session()->has('message'))
-        <div class="alert alert-success" role="alert">
-            {{ session('message') }}
-        </div>
-    @endif
-
     <form method="POST" action="{{ route('form.store') }}" class="mb-5">
         @csrf
+
+        @if (session()->has('message'))
+            <div class="alert alert-success" role="alert">
+                {{ session('message') }}
+            </div>
+        @endif
+
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" class="form-control @error('form.email') is-invalid @enderror" id="email"
