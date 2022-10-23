@@ -12,5 +12,6 @@ class Form extends Model
     protected $fillable = [
         'name',
         'email',
+        'count',
     ];
 }
