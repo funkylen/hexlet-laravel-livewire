@@ -59,6 +59,10 @@ class Form extends Component
 
     public function decrement(): void
     {
+        if ($this->form->count === 0) {
+            return;
+        }
+
         $this->form->count -= 1;
     }
 }
